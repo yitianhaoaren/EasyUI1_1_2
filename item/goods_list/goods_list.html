@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../Css/default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="../../js/themes/icon.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="goods_list.js"></script>
+<style type="text/css">
+html,body{ width:100%; height:100%; margin:0; padding:0;}
+</style>
+</head>
+
+<body >
+<!--grid 列表-->
+<table id="tt"></table>
+
+<!--add 添加-->
+
+<div class="goods_add" style="display:none; ">
+  <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+  			
+            价格:<input class="txt01"/>
+            专柜价:<input class="txt01"/>
+           
+            男女装:<span style="background-color:#CCC">男<input type="radio" name="sex" value="0"/>&nbsp;女<input type="radio" name="sex" value="1"/>&nbsp;混合<input type="radio" name="sex" value="1"/></span></br>
+            分类:<select name="dept">  
+                            <option value="aa">中华人民共和国</option>   
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+            品牌：<select name="dept" >  
+                            <option value="aa">中华人民共和国</option>   
+                        </select></br>
+            描述:<textarea cols="105" rows="2"></textarea>
+            </br>
+            <hr/>
+            </br>
+            货号:<input class="txt01"/>上市时间:<input class="txt01"/>
+             </br>
+            <hr/>
+             </br>
+        	<fieldset class="goods_param"><legend>添加参数 </legend> 
+                <div class="goods_add_param" style="width:100%;">
+                        名称:<select   name="dept" style="width:80px;">  
+                            <option value="aa">中华人民共和国</option>   
+                        </select>  值：<select name="dept" style="width:80px;">  
+                            <option value="aa">中华人民共和国</option>   
+                        </select> 
+                </div>
+            </fieldset>
+           
+        	<hr/>
+      		</br>
+            <fieldset class="goods_add_img"><legend>添加商品图片</legend>
+            	<input type="file" name="img" />
+            </fieldset>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery-EasyUI 1.1 应用实例</title>
+    <link href="Css/default.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="js/themes/icon.css" />
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min-1.1.2.js"></script>
+	<script type="text/javascript" src='js/outlook2.js'> </script>
+    <script type="text/javascript">
+	 var _menus = {"menus":[
+						{"menuid":"1","icon":"icon-sys","menuname":"商品管理 ",
+							"menus":[
+									{"menuid":"11","menuname":"商品分类","icon":"icon-edit","url":"item/goods_tree/goods_tree.html"},
+									{"menuid":"12","menuname":"商品列表","icon":"icon-nav","url":"item/goods_list/goods_list.html"},
+									{"menuid":"16","menuname":"友情连接","icon":"icon-set","url":"http://www.hao123.com"}
+								]
+						},{
+							"menuid":"4","icon":"icon-sys","menuname":"首页管理",
+							"menus":[
+									{"menuid":"41","menuname":"主广告区","icon":"icon-nav","url":"item/index_manage/index_manage.html"},
+									{"menuid":"42","menuname":"最新动态","icon":"icon-nav","url":"item/new_manage/new_manage.html"},
+									{"menuid":"43","menuname":"限时抢购","icon":"icon-nav","url":"item/flashSale_manage/flashSale_manage.html"},
+									{"menuid":"44","menuname":"畅销商品","icon":"icon-nav","url":"item/sellWell_manage/sellWell_manage.html"},
+									{"menuid":"45","menuname":"最强折扣","icon":"icon-nav","url":"item/discount_manage/discount_manage.html"},
+									{"menuid":"46","menuname":"新品排行","icon":"icon-nav","url":"item/newRanking_manage/newRanking_manage.html"},
+									{"menuid":"47","menuname":"小编推荐","icon":"icon-nav","url":"item/recommend_manage/recommend_manage.html"},
+									{"menuid":"48","menuname":"品牌展示","icon":"icon-nav","url":"item/brand_manage/brand_manage.html"}
+								]
+						},{
+							"menuid":"6","icon":"icon-sys","menuname":"参数管理",
+							"menus":[
+									{"menuid":"61","menuname":"商品参数","icon":"icon-nav","url":"item/parameter_list/parameter_list.html"}
+								]
+						},{"menuid":"2","icon":"icon-sys","menuname":"订单管理",
+							"menus":[
+									{"menuid":"14","menuname":"订单列表","icon":"icon-set","url":"item/order_list/order_list.html"},
+									{"menuid":"15","menuname":"送货清单","icon":"icon-set","url":"item/delivery_list/delivery_list.html"},
+									{"menuid":"15","menuname":"结算列表 ","icon":"icon-set","url":"item/settling_list/settling_list.html"},
+									{"menuid":"15","menuname":"退货查询","icon":"icon-set","url":"item/back_list/back_list.html"},
+									{"menuid":"15","menuname":"订单报表","icon":"icon-set","url":"http://www.hao123.com"}
+								]
+						},{
+							"menuid":"5","icon":"icon-sys","menuname":"评论管理",
+							"menus":[
+									{"menuid":"51","menuname":"评论审核","icon":"icon-nav","url":"item/bbs_audit_list/bbs_audit_list.html"},
+									{"menuid":"53","menuname":"评论批处理","icon":"icon-nav","url":"item/bbs_approved_list/bbs_approved_list.html"}
+								]
+						},{"menuid":"3","icon":"icon-sys","menuname":"用户管理",
+							"menus":[
+									{"menuid":"31","menuname":"用户列表","icon":"icon-nav","url":"item/user_list/user_list.html"},
+									{"menuid":"32","menuname":"管理员","icon":"icon-nav","url":"item/admin_list/admin_list.html"}
+								]
+						},{
+							"menuid":"7","icon":"icon-sys","menuname":"优惠券管理",
+							"menus":[
+									{"menuid":"71","menuname":"会员分配","icon":"icon-nav","url":"item/goods_list.html"},
+									{"menuid":"72","menuname":"消费优惠券规则","icon":"icon-nav","url":"item/goods_list.html"},
+									{"menuid":"73","menuname":"优惠券报表","icon":"icon-nav","url":"item/goods_list.html"},
+									{"menuid":"74","menuname":"个人优惠券列表","icon":"icon-nav","url":"item/goods_list.html"}
+								]
+						}				
+				]};
+        //设置登录窗口
+        function openPwd() {
+            $('#w').window({
+                title: '修改密码',
+                width: 300,
+                modal: true,
+                shadow: true,
+                closed: true,
+                height: 160,
+                resizable:false
+            });
+        }
+        //关闭登录窗口
+        function closePwd() {
+            $('#w').window('close');
+        }
+
+        
+
+        //修改密码
+        function serverLogin() {
+            var $newpass = $('#txtNewPass');
+            var $rePass = $('#txtRePass');
+
+            if ($newpass.val() == '') {
+                msgShow('系统提示', '请输入密码！', 'warning');
+                return false;
+            }
+            if ($rePass.val() == '') {
+                msgShow('系统提示', '请在一次输入密码！', 'warning');
+                return false;
+            }
+
+            if ($newpass.val() != $rePass.val()) {
+                msgShow('系统提示', '两次密码不一至！请重新输入', 'warning');
+                return false;
+            }
+
+            $.post('/ajax/editpassword.ashx?newpass=' + $newpass.val(), function(msg) {
+                msgShow('系统提示', '恭喜，密码修改成功！<br>您的新密码为：' + msg, 'info');
+                $newpass.val('');
+                $rePass.val('');
+                close();
+            })
+            
+        }
+
+        $(function() {
+			 openPwd();
+			//修改密码的弹出
+            $('#editpass').click(function() {
+                $('#w').window('open');
+            });
+			//保存登录
+            $('#btnEp').click(function() {
+                serverLogin();
+            })
+			//修改密码取消
+			$('#btnCancel').click(function(){
+				closePwd();
+			})
+			//退出系统
+            $('#loginOut').click(function() {
+                $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function(r) {
+
+                    if (r) {
+                        location.href = '/ajax/loginout.ashx';
+                    }
+                });
+            })
+        });
+		
+		
+
+    </script>
+
+</head>
+<body class="easyui-layout" style="overflow-y: hidden"  scroll="no">
+    <!--noscript-->
+    <noscript>
+        <div style=" position:absolute; z-index:100000; height:2046px;top:0px;left:0px; width:100%; background:white; text-align:center;">
+            <img src="images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <!--north 标题 头部-->
+    <div region="north" split="false" border="false" style="overflow: hidden; height: 59px;
+        background:#FFF  repeat-y center 50%; color:#15428B;
+        line-height: 20px; font-family: Verdana, 微软雅黑,黑体"><!--#E8E8E8-->
+       
+        <span style="float:right; padding-right:20px;" class="head">
+        	欢迎 一天
+            <a href="#" id="editpass">修改密码</a> 
+            <a href="#" id="loginOut">安全退出</a>
+        </span>
+       
+         <img src="http://www.youboy.com/logo/logo.gif" align="absmiddle" /> 
+         <span style="font-size: 16px; width:100%;">
+        	后台管理
+        </span>
+    </div>
+    <!--south 版本说明 底部-->
+    <div region="south" split="false" style="height: 30px; background: #D2E0F2; ">
+        <div class="footer">一天 QQ:807501713 E-mail:yitian_web@hotmail.com</div>
+    </div>
+    <!--west 导航菜 右侧-->
+    <div region="west" hide="true" split="true" title="导航菜单" style="width:240px;" id="west">
+		<div class="easyui-accordion" fit="true" border="false">
+		</div>
+    </div>
+    <!--mainPanle 内容 主面板-->
+    <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
+        <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
+			<div title="欢迎使用" style="padding:20px;overflow:hidden;" id="home">
+				
+			</div>
+		</div>
+    </div>
+    
+    
+    <!--修改密码窗口-->
+    <div id="w" class="easyui-window" title="修改密码" collapsible="false" minimizable="false"
+        maximizable="false" icon="icon-save"  style="width: 300px; height: 150px; padding: 5px;
+        background: #fafafa;">
+        <div class="easyui-layout" fit="true">
+            <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                <table cellpadding=3>
+                    <tr>
+                        <td>新密码：</td>
+                        <td><input id="txtNewPass" type="Password" class="txt01" /></td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td><input id="txtRePass" type="Password" class="txt01" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
+                <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" >
+                    确定</a> <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+    </div>
+	<!--easyui tab 右键-->
+	<div id="mm" class="easyui-menu" style="width:150px;">
+		<div id="mm-tabupdate">刷新</div>
+		<div class="menu-sep"></div>
+		<div id="mm-tabclose">关闭</div>
+		<div id="mm-tabcloseall">全部关闭</div>
+		<div id="mm-tabcloseother">除此之外全部关闭</div>
+		<div class="menu-sep"></div>
+		<div id="mm-tabcloseright">当前页右侧全部关闭</div>
+		<div id="mm-tabcloseleft">当前页左侧全部关闭</div>
+		<div class="menu-sep"></div>
+		<div id="mm-exit">退出</div>
+	</div>
+
+
+</body>
+</html>

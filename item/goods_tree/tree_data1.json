@@ -1,0 +1,15 @@
+[{
+	"id":1,
+	"text":"asdfsf",
+	"iconCls":"icon-ok"
+},{
+	"text":"Languages",
+	"state":"open",
+	"children":[{
+		"id":"j1",
+		"text":"Java"
+	},{
+		"id":"j2",
+		"text":"C#"
+	}]
+}]

@@ -1,0 +1,47 @@
+﻿[{
+	"id":1,
+	"text":"女鞋",
+	"iconCls":"icon-ok",
+	"children":[{
+		"id":2,
+		"text":"单鞋",
+		"checked":true
+	},{
+		"id":3,
+		"text":"凉鞋",
+		"state":"closed",
+		"children":[{
+			"id":4,
+			"text":"平跟凉鞋",
+			"attributes":{
+				"p1":"value1",
+				"p2":"value2"
+			},
+			"checked":true
+		},{
+			"id": 8,
+			"text":"低跟鞋"
+		}]
+	},{
+		"id":3,
+		"text":"休闲",
+		"state":"closed",
+		"children":[{
+			"id":4,
+			"text":"牛仔鞋"
+		},{
+			"id": 8,
+			"text":"帆布鞋"
+		}]
+	}]
+},{
+	"text":"男鞋",
+	"state":"closed",
+	"children":[{
+		"id":"j1",
+		"text":"分类"
+	},{
+		"id":"j2",
+		"text":"热门"
+	}]
+}]

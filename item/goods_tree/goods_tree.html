@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../Css/default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="../../js/themes/icon.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="goods_tree.js"></script>
+<style type="text/css">
+html,body{ width:100%; height:100%; margin:0; padding:0;}
+.class_type_list ul li img{ border:#FFF thin solid;} 
+.class_type_list .ping{ border:red thin solid;}
+.class_type_list ul li{float:left;border:#FFF thin solid; margin:0; padding:0;}
+.class_type_list .select{border-color:red}
+</style>
+</head>
+
+<body  class="easyui-layout" fit="true">
+	<!--左边  TreeView -->
+	<div region="west" split="true" style="width:300px; overflow:auto" class="easyui-panel class_typ_tree" title="分类目录结构[注:节点右建操作]">
+        <ul id="tt" url="tree_data.json" animate="true" ></ul>
+    </div>
+    <!--中间内容-->
+    <div region="center" class="easyui-panel easyui-layout class_type_main" border="false"  doSize="true" style="overflow:hidden;">
+        <div region="north"  split="true"  style="height:80px;" title="分类信息">
+               	<span style="float:left; width:50px; text-align:right;">ID:</span>
+                <span id="easy_id" style="float:left; width:20%;">2323</span>
+                <span style="float:left; width:30px; text-align:right;">名称:</span>
+                <span id="easy_title" style="float:left; width:20%;">23</span>
+        </div>
+        <div region="center"  >
+        	<div class="class_type_list" title="分类品牌[注:点击选择品牌]">
+                <ul style="list-style:none">
+                	<li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/dc/dcd53608ee06804488cb07224bc0bfa5.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/nike.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/adidas.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/newbalance2.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/e1/e10e2a1b233fe98774a32aa395739f68.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/27/27e47f80c17f7e8b9660f2085d28b6e9.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/clothing/lare-doute.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/6d/6d1c574bd12210900082b3e0ba496d6b.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/12/120bf7e50cd262da4bbbf58a91c81c25.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/0c/0cf0a25578cc79c3d50b73260462dc4d.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/f8/f80787a60f8a0bd3fa9083fe4fe7bf58.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/safiya.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/skechers.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/converse.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/dc/dcd53608ee06804488cb07224bc0bfa5.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/nike.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/adidas.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/newbalance2.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/e1/e10e2a1b233fe98774a32aa395739f68.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/27/27e47f80c17f7e8b9660f2085d28b6e9.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/clothing/lare-doute.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/6d/6d1c574bd12210900082b3e0ba496d6b.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/12/120bf7e50cd262da4bbbf58a91c81c25.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/0c/0cf0a25578cc79c3d50b73260462dc4d.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/f8/f80787a60f8a0bd3fa9083fe4fe7bf58.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/safiya.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/skechers.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/converse.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/dc/dcd53608ee06804488cb07224bc0bfa5.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/nike.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/adidas.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/newbalance2.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/e1/e10e2a1b233fe98774a32aa395739f68.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/27/27e47f80c17f7e8b9660f2085d28b6e9.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/clothing/lare-doute.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/6d/6d1c574bd12210900082b3e0ba496d6b.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/12/120bf7e50cd262da4bbbf58a91c81c25.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/0c/0cf0a25578cc79c3d50b73260462dc4d.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/f8/f80787a60f8a0bd3fa9083fe4fe7bf58.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/safiya.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/skechers.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/converse.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/dc/dcd53608ee06804488cb07224bc0bfa5.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/nike.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/adidas.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/newbalance2.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/e1/e10e2a1b233fe98774a32aa395739f68.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/27/27e47f80c17f7e8b9660f2085d28b6e9.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/clothing/lare-doute.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/6d/6d1c574bd12210900082b3e0ba496d6b.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/12/120bf7e50cd262da4bbbf58a91c81c25.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201203/0c/0cf0a25578cc79c3d50b73260462dc4d.png"/></li>
+                    <li ><img src="http://i.okaybuy.cn/images/multipic/new/201202/f8/f80787a60f8a0bd3fa9083fe4fe7bf58.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/safiya.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/fashion/skechers.png"/></li>
+                    <li ><img src="http://static1.cdn.okaybuy.cn/resources/images/brands/sports/converse.png"/></li>
+                </ul>
+             </div>
+        </div>
+    </div>
+   <!---分类效果
+    <div region="east" split="true"  class="easyui-panel" title="分类效果" style="width:300px">
+    	
+    </div>
+   -->
+    <!--添加品牌-->
+    <div class="add_class_brand" style="display:none;">
+    	<div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+            名称:<input class="txt01"/><br/>
+            图片:<input type="file" class="img_url" id="img_url" />
+        </div>
+    </div>
+    
+    <!--添加分类-->
+    <div class="add_class_type" style="display:none;">
+    	<div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+            分类名称:<input class="type_class"/><br/>
+        </div>
+    </div>
+    
+    
+    <div class="class_type_tree_contextMenu easyui-menu"   style="width:120px;">
+    	<div iconCls="icon-add" class="class_type_tree_add">新增</div>
+		<div iconCls="icon-edit" class="class_type_tree_edit">修改</div>
+		<div iconCls="icon-remove"  class="class_type_tree_remove">删除</div>
+        <div class="menu-sep"></div>
+		<div class="class_type_tree_exit">Exit</div>
+        <div iconCls="icon-add" class="class_type_tree_addmessage">添加分类详情</div>
+    </div>
+</body>
+</html>
